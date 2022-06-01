@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(const MyApp());
@@ -94,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 GestureDetector(
                   onTap: _handleIncrement,
                   child: AnimatedContainer(
+                    constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
                     duration: const Duration(milliseconds: 500),
                     decoration: BoxDecoration(
                     image: DecorationImage(image: AssetImage(_topButton))),
@@ -115,6 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 GestureDetector(
                   onTap: _handleDecrement,
                   child: AnimatedContainer(
+                    constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
                     duration: const Duration(milliseconds: 500),
                     decoration: BoxDecoration(
                     image: DecorationImage(image: AssetImage(_bottomButton))),
