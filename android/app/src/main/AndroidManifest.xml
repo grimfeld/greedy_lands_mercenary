@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.greeding_lands_mercenary">
+    <uses-permission android:name="android.permission.VIBRATE"/>
    <application
         android:label="greeding_lands_mercenary"
         android:name="${applicationName}"

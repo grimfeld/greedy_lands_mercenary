@@ -50,6 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
       if (_coins < 100) {
         _topButton = "assets/top-button-pressed-no-shadow.png";
         _coins++;
+        if (_coins % 10 == 0) {
+          HapticFeedback.vibrate();
+        }
         Future.delayed(const Duration(milliseconds: 500), () {
           setState(() {
             _topButton = "assets/top-button-no-shadow.png";
