@@ -47,13 +47,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _handleIncrement() {
     setState(() {
-      _topButton = "assets/top-button-pressed-no-shadow.png";
-      _coins++;
-      Future.delayed(const Duration(milliseconds: 500), () {
-        setState(() {
-          _topButton = "assets/top-button-no-shadow.png";
+      if (_coins < 100) {
+        _topButton = "assets/top-button-pressed-no-shadow.png";
+        _coins++;
+        Future.delayed(const Duration(milliseconds: 500), () {
+          setState(() {
+            _topButton = "assets/top-button-no-shadow.png";
+          });
         });
-      });
+      }
     });
   }
 
@@ -68,6 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         });
       }
+    });
+  }
+
+  void _reset() {
+    setState(() {
+      _coins = 0;
     });
   }
 
@@ -137,6 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           GestureDetector(
                             onTap: _handleDecrement,
+                            onLongPress: _reset,
                             child: Padding(
                               padding: const EdgeInsets.only(right: 35),
                               child: Container(
