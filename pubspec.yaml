@@ -86,12 +86,9 @@ flutter:
   #         weight: 700
 
   fonts:
-    - family: Alegreya
-      fonts:
-        - asset: fonts/Alegreya/static/Alegreya-Bold.ttf
     - family: Klarissa
       fonts:
-        - asset: fonts/klarissa/KlarissaContour.ttf
+        - asset: fonts/klarissa/Klarissa.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

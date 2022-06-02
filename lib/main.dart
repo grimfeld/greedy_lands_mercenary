@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -79,84 +79,164 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Stack(
           fit: StackFit.expand,
-          children: <Widget>[
+          children: [
             const Positioned.fill(
-              top: 0.0,
-              left: 0.0,
               child: Image(
-                image: AssetImage('assets/fond1.png'),
-                fit: BoxFit.cover,
+                image: AssetImage("assets/fond3.png"),
+                fit: BoxFit.cover
               ),
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const Image(
-                  image: AssetImage('assets/logo-small.png'),
-                  width: 400,
-                ),
-                Expanded(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Image(image: AssetImage("assets/logo-small.png"), width: 400),
+                SizedBox(
+                  width: 300,
+                  height: 300,
                   child: Stack(
                     children: [
-                    const Positioned.fill(
-                      top: 0.0,
-                      left: 0.0,
-                      child: Image(
-                        image: AssetImage('assets/background-2.png'),
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        GestureDetector(
-                          onTap: _handleIncrement,
-                          child: AnimatedContainer(
-                            constraints: const BoxConstraints(maxWidth: 100, maxHeight: 100),
-                            duration: const Duration(milliseconds: 500),
-                            decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(_topButton))),
-                            width: screenWidth * 0.15,
-                            height: screenWidth * 0.15,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 50, bottom: 50),
+                      Positioned.fill(child: Image.asset("assets/Coin-background.png")),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 30),
                           child: Text(
-                            '$_coins',
-                            textAlign: TextAlign.center,
+                            "$_coins",
                             style: const TextStyle(
                               color: Color(0xFF362917),
-                              fontSize: 75,
+                              fontSize: 100,
                               fontFamily: "Klarissa",
                             ),
                           ),
                         ),
-                        GestureDetector(
-                          onTap: _handleDecrement,
-                          child: AnimatedContainer(
-                            constraints: const BoxConstraints(maxWidth: 100, maxHeight: 100),
-                            duration: const Duration(milliseconds: 500),
-                            decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(_bottomButton))),
-                            width: screenWidth * 0.15,
-                            height: screenWidth * 0.15,
-                          ),
-                        ),
-                      ],
-                    )],
+                      ),
+                    ],
                   ),
                 ),
-                Container(
-                  height: 146.9
+                SizedBox(
+                  width: 400,
+                  height: 280,
+                  child: Stack(
+                    children: [
+                      Positioned.fill(child: Image.asset('assets/Button-background.png'),),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            onTap: _handleIncrement,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 25),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(_topButton))),
+                                width: 110,
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: _handleDecrement,
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 25),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(_bottomButton))),
+                                width: 110,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  )
                 )
               ],
-            ),
-          ],
+            )
+          ]
         ),
-      ),
+      )
+      
     );
   }
 }
+
+
+// Center(
+//         child: Stack(
+//           fit: StackFit.expand,
+//           children: <Widget>[
+//             const Positioned.fill(
+//               top: 0.0,
+//               left: 0.0,
+//               child: Image(
+//                 image: AssetImage('assets/fond3.png'),
+//                 fit: BoxFit.cover,
+//               ),
+//             ),
+//             Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               children: <Widget>[
+//                 const Image(
+//                   image: AssetImage('assets/logo-small.png'),
+//                   width: 400,
+//                 ),
+//                 Expanded(
+//                   child: Stack(
+//                     children: [
+//                     const Positioned.fill(
+//                       top: 0.0,
+//                       left: 0.0,
+//                       child: Image(
+//                         image: AssetImage('assets/background-2.png'),
+//                         fit: BoxFit.contain,
+//                       ),
+//                     ),
+//                     Column(
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       crossAxisAlignment: CrossAxisAlignment.stretch,
+//                       children: [
+//                         GestureDetector(
+//                           onTap: _handleIncrement,
+//                           child: AnimatedContainer(
+//                             constraints: const BoxConstraints(maxWidth: 100, maxHeight: 100),
+//                             duration: const Duration(milliseconds: 500),
+//                             decoration: BoxDecoration(
+//                             image: DecorationImage(image: AssetImage(_topButton))),
+//                             width: screenWidth * 0.15,
+//                             height: screenWidth * 0.15,
+//                           ),
+//                         ),
+//                         Padding(
+//                           padding: const EdgeInsets.only(top: 50, bottom: 50),
+//                           child: Text(
+//                             '$_coins',
+//                             textAlign: TextAlign.center,
+//                             style: const TextStyle(
+//                               color: Color(0xFF362917),
+//                               fontSize: 75,
+//                               fontFamily: "Klarissa",
+//                             ),
+//                           ),
+//                         ),
+//                         GestureDetector(
+//                           onTap: _handleDecrement,
+//                           child: AnimatedContainer(
+//                             constraints: const BoxConstraints(maxWidth: 100, maxHeight: 100),
+//                             duration: const Duration(milliseconds: 500),
+//                             decoration: BoxDecoration(
+//                             image: DecorationImage(image: AssetImage(_bottomButton))),
+//                             width: screenWidth * 0.15,
+//                             height: screenWidth * 0.15,
+//                           ),
+//                         ),
+//                       ],
+//                     )],
+//                   ),
+//                 ),
+//                 Container(
+//                   height: 146.9
+//                 )
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),
