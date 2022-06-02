@@ -87,34 +87,37 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Image(image: AssetImage("assets/logo-small.png"), width: 400),
+                const Image(image: AssetImage("assets/logo-small.png"), width: 360),
                 SizedBox(
-                  width: 300,
-                  height: 300,
-                  child: Stack(
-                    children: [
-                      Positioned.fill(child: Image.asset("assets/Coin-background.png")),
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 30),
-                          child: Text(
-                            "$_coins",
-                            style: const TextStyle(
-                              color: Color(0xFF362917),
-                              fontSize: 100,
-                              fontFamily: "Klarissa",
+                  width: 250,
+                  height: 250,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 30),
+                    child: Stack(
+                      children: [
+                        Positioned.fill(child: Image.asset("assets/Coin-background.png")),
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 30),
+                            child: Text(
+                              "$_coins",
+                              style: const TextStyle(
+                                color: Color(0xFF362917),
+                                fontSize: 75,
+                                fontFamily: "Klarissa",
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
-                  width: 400,
-                  height: 280,
+                  width: 360,
+                  height: 240,
                   child: Stack(
                     children: [
                       Positioned.fill(child: Image.asset('assets/Button-background.png'),),
@@ -124,22 +127,22 @@ class _MyHomePageState extends State<MyHomePage> {
                           GestureDetector(
                             onTap: _handleIncrement,
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 25),
+                              padding: const EdgeInsets.only(left: 35),
                               child: Container(
                                 decoration: BoxDecoration(
                                 image: DecorationImage(image: AssetImage(_topButton))),
-                                width: 110,
+                                width: 90,
                               ),
                             ),
                           ),
                           GestureDetector(
                             onTap: _handleDecrement,
                             child: Padding(
-                              padding: const EdgeInsets.only(right: 25),
+                              padding: const EdgeInsets.only(right: 35),
                               child: Container(
                                 decoration: BoxDecoration(
                                 image: DecorationImage(image: AssetImage(_bottomButton))),
-                                width: 110,
+                                width: 90,
                               ),
                             ),
                           ),
