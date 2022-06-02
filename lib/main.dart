@@ -84,47 +84,74 @@ class _MyHomePageState extends State<MyHomePage> {
               top: 0.0,
               left: 0.0,
               child: Image(
-                image: AssetImage('assets/background.png'),
-                fit: BoxFit.contain,
+                image: AssetImage('assets/fond1.png'),
+                fit: BoxFit.cover,
               ),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                GestureDetector(
-                  onTap: _handleIncrement,
-                  child: AnimatedContainer(
-                    constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
-                    duration: const Duration(milliseconds: 500),
-                    decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage(_topButton))),
-                    width: screenWidth * 0.2,
-                    height: screenWidth * 0.2,
-                  ),
+                const Image(
+                  image: AssetImage('assets/logo-small.png'),
+                  width: 400,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 30, bottom: 30),
-                  child: Text(
-                    '$_coins',
-                    style: const TextStyle(
-                      color: Color(0xFF362917),
-                      fontSize: 75,
-                      fontFamily: "Klarissa"
+                Expanded(
+                  child: Stack(
+                    children: [
+                    const Positioned.fill(
+                      top: 0.0,
+                      left: 0.0,
+                      child: Image(
+                        image: AssetImage('assets/background-2.png'),
+                        fit: BoxFit.contain,
+                      ),
                     ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        GestureDetector(
+                          onTap: _handleIncrement,
+                          child: AnimatedContainer(
+                            constraints: const BoxConstraints(maxWidth: 100, maxHeight: 100),
+                            duration: const Duration(milliseconds: 500),
+                            decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage(_topButton))),
+                            width: screenWidth * 0.15,
+                            height: screenWidth * 0.15,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 50, bottom: 50),
+                          child: Text(
+                            '$_coins',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Color(0xFF362917),
+                              fontSize: 75,
+                              fontFamily: "Klarissa",
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: _handleDecrement,
+                          child: AnimatedContainer(
+                            constraints: const BoxConstraints(maxWidth: 100, maxHeight: 100),
+                            duration: const Duration(milliseconds: 500),
+                            decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage(_bottomButton))),
+                            width: screenWidth * 0.15,
+                            height: screenWidth * 0.15,
+                          ),
+                        ),
+                      ],
+                    )],
                   ),
                 ),
-                GestureDetector(
-                  onTap: _handleDecrement,
-                  child: AnimatedContainer(
-                    constraints: const BoxConstraints(maxWidth: 150, maxHeight: 150),
-                    duration: const Duration(milliseconds: 500),
-                    decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage(_bottomButton))),
-                    width: screenWidth * 0.2,
-                    height: screenWidth * 0.2,
-                  ),
-                ),
+                Container(
+                  height: 146.9
+                )
               ],
             ),
           ],
