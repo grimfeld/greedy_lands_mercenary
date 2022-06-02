@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _reset() {
     setState(() {
       _coins = 0;
+      HapticFeedback.heavyImpact();
     });
   }
 
@@ -83,21 +84,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: const Color(0xFF716F6B),
-      body: Center(
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
+        backgroundColor: const Color(0xFF716F6B),
+        body: Center(
+          child: Stack(fit: StackFit.expand, children: [
             const Positioned.fill(
               child: Image(
-                image: AssetImage("assets/fond3.png"),
-                fit: BoxFit.cover
-              ),
+                  image: AssetImage("assets/fond3.png"), fit: BoxFit.cover),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Image(image: AssetImage("assets/logo-small.png"), width: 360),
+                const Image(
+                    image: AssetImage("assets/logo-small.png"), width: 360),
                 SizedBox(
                   width: 250,
                   height: 250,
@@ -105,7 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.only(bottom: 30),
                     child: Stack(
                       children: [
-                        Positioned.fill(child: Image.asset("assets/Coin-background.png")),
+                        Positioned.fill(
+                            child: Image.asset("assets/Coin-background.png")),
                         Center(
                           child: Padding(
                             padding: const EdgeInsets.only(right: 30),
@@ -124,49 +123,49 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 SizedBox(
-                  width: 360,
-                  height: 240,
-                  child: Stack(
-                    children: [
-                      Positioned.fill(child: Image.asset('assets/Button-background.png'),),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(
-                            onTap: _handleIncrement,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 35),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                image: DecorationImage(image: AssetImage(_topButton))),
-                                width: 90,
+                    width: 360,
+                    height: 240,
+                    child: Stack(
+                      children: [
+                        Positioned.fill(
+                          child: Image.asset('assets/Button-background.png'),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            GestureDetector(
+                              onTap: _handleIncrement,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 35),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(_topButton))),
+                                  width: 90,
+                                ),
                               ),
                             ),
-                          ),
-                          GestureDetector(
-                            onTap: _handleDecrement,
-                            onLongPress: _reset,
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 35),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                image: DecorationImage(image: AssetImage(_bottomButton))),
-                                width: 90,
+                            GestureDetector(
+                              onTap: _handleDecrement,
+                              onLongPress: _reset,
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 35),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(_bottomButton))),
+                                  width: 90,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      )
-                    ],
-                  )
-                )
+                          ],
+                        )
+                      ],
+                    ))
               ],
             )
-          ]
-        ),
-      )
-      
-    );
+          ]),
+        ));
   }
 }
 
